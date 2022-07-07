@@ -13,7 +13,7 @@ import {
 import { BiUser, BiLockAlt, BiRightArrowAlt } from "react-icons/bi";
 import { VscEye, VscEyeClosed } from "react-icons/vsc";
 
-import "./css/login.css";
+import "../css/login.css";
 
 function Login() {
   const [show, setShow] = React.useState(false);

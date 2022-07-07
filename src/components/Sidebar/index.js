@@ -1,5 +1,6 @@
-import { VStack, Button, Box } from "@chakra-ui/react";
+import { VStack, Button, Box, Text } from "@chakra-ui/react";
 import React from "react";
+import "../../css/sidebar.css";
 
 import { BiGridAlt, BiUser, BiWrench } from "react-icons/bi";
 import { TbBuildingHospital } from "react-icons/tb";
@@ -18,8 +19,11 @@ function SidebarComponent() {
         <Button
           width="100%"
           justifyContent="start"
-          height="3em"
+          height="2.7em"
           leftIcon={item.icon}
+          fontSize="15.5px"
+          backgroundColor="white"
+          py={6}
         >
           {item.name}
         </Button>
@@ -32,13 +36,16 @@ function SidebarComponent() {
       <Box
         position="fixed"
         left={0}
-        p={5}
-        w="300px"
+        p={6}
+        w="220px"
         top={0}
         h="100%"
         bg="white"
-        boxShadow="md"
+        boxShadow="sm"
       >
+        <Text fontSize="xl" ms={4} mb={10}>
+          Logo here
+        </Text>
         <SidebarContent />
       </Box>
     </div>

@@ -8,10 +8,12 @@ import {
   InputLeftElement,
   InputRightElement,
   Button,
+  useToast,
+  Center,
+  Link,
 } from "@chakra-ui/react";
 
 import axios from "axios";
-
 import { BiUser, BiLockAlt, BiRightArrowAlt } from "react-icons/bi";
 import { VscEye, VscEyeClosed } from "react-icons/vsc";
 import { MdAlternateEmail } from "react-icons/md";
@@ -20,6 +22,7 @@ import "../css/login.css";
 function Signup() {
   const [show, setShow] = React.useState(false);
   const handleClick = () => setShow(!show);
+  const toast = useToast();
 
   const [data, setData] = useState({
     firstName: "",
@@ -40,13 +43,29 @@ function Signup() {
     axios
       .post("http://localhost/referral_api/api/registration.php", data)
       .then(function (response) {
-        console.log(response.data);
+        if (response.data.status === 1) {
+          toast({
+            title: response.data.message,
+            status: "success",
+            position: "top",
+            duration: 2000,
+            isClosable: true,
+          });
+        } else {
+          toast({
+            title: response.data.message,
+            position: "top",
+            status: "warning",
+            duration: 2000,
+            isClosable: true,
+          });
+        }
       });
   };
 
   return (
     <div>
-      <Flex alignItems="center" justify="center" height="100vl">
+      <Flex alignItems="center" justify="center" mt={10} pt={10} height="100vl">
         <Flex direction="column" p="12" rounded="md" width="50vh">
           <Text fontSize="3xl" fontWeight="600">
             Registration
@@ -159,6 +178,12 @@ function Signup() {
                 Register
               </Button>
             </form>
+
+            <Center>
+              <Link color="teal.600" href="/" fontSize="14px" mt={5}>
+                Sign in
+              </Link>
+            </Center>
           </Box>
         </Flex>
       </Flex>

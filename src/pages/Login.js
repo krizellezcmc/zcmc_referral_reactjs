@@ -9,6 +9,8 @@ import {
   InputRightElement,
   Button,
   useToast,
+  Link,
+  Center,
 } from "@chakra-ui/react";
 
 import { BiUser, BiLockAlt, BiRightArrowAlt } from "react-icons/bi";
@@ -33,6 +35,7 @@ function Login() {
     setData((values) => ({ ...values, [name]: value }));
   };
 
+  //SEND DATA TO API
   const handleSubmit = (event) => {
     event.preventDefault();
     axios
@@ -44,6 +47,24 @@ function Login() {
             position: "top",
             isClosable: true,
           });
+        } else if (response.data.message === "No Email") {
+          toast({
+            position: "top",
+            title: "Email does not exist.",
+
+            status: "warning",
+            duration: 2000,
+            isClosable: true,
+          });
+        } else {
+          toast({
+            position: "top",
+            title: "Invalid password.",
+
+            status: "error",
+            duration: 2000,
+            isClosable: true,
+          });
         }
         console.log(response.data);
       });
@@ -53,7 +74,7 @@ function Login() {
 
   return (
     <div>
-      <Flex alignItems="center" justify="center" height="100vl">
+      <Flex alignItems="center" justify="center" mt={10} pt={10} height="100vl">
         <Flex direction="column" p="12" rounded="md" width="50vh">
           <Text fontSize="3xl" fontWeight="600">
             Sign in
@@ -136,6 +157,12 @@ function Login() {
                 Sign in
               </Button>
             </form>
+
+            <Center>
+              <Link color="teal.600" href="/register" fontSize="14px" mt={5}>
+                Register
+              </Link>
+            </Center>
           </Box>
         </Flex>
       </Flex>

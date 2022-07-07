@@ -35,16 +35,13 @@ function Signup() {
     setData((values) => ({ ...values, [name]: value }));
   };
 
-  //Submit form
   const handleSubmit = (event) => {
     event.preventDefault();
-
-    // AKI CODE
-    axios.post(/**URL HERE*/ "", data).then(function (response) {
-      console.log(response.data);
-    });
-
-    console.log(data);
+    axios
+      .post("http://localhost/referral_api/api/registration.php", data)
+      .then(function (response) {
+        console.log(response.data);
+      });
   };
 
   return (

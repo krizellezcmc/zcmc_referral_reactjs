@@ -5,7 +5,6 @@ import {
   HStack,
   PinInput,
   PinInputField,
-  Heading,
   Text,
   Divider,
   Image,
@@ -49,7 +48,7 @@ function Verify() {
           </Text>
           <Box px="30">
             <Center>
-              <Divider my={2} bgColor="#058e46" p="1px" w="50%" />
+              <Divider my={2} bgColor="#058e46" p="1px" w="45%" />
             </Center>
           </Box>
 
@@ -73,8 +72,8 @@ function Verify() {
               Verify
             </Button>
 
-            <Link color="teal.600" href="/" fontSize="12px">
-              Back to homepage
+            <Link color="#058e46" href="/" fontSize="14px">
+              {"<<"} Back to Homepage
             </Link>
           </VStack>
         </Box>

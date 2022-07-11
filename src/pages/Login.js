@@ -41,7 +41,7 @@ function Login() {
     axios
       .post("http://localhost/referral_api/api/login.php", data)
       .then(function (response) {
-        if (response.data.message === "Oki") {
+        if (response.data.message === "Success") {
           toast({
             title: "You are now logged in!",
             position: "top",
@@ -102,6 +102,7 @@ function Login() {
                   fontSize="14.5px"
                   name="email"
                   onChange={handleInput}
+                  required
                 />
               </InputGroup>
 
@@ -119,6 +120,7 @@ function Login() {
                   fontSize="14.5px"
                   name="password"
                   onChange={handleInput}
+                  required
                 />
                 <InputRightElement>
                   <Button

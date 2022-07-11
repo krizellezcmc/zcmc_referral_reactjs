@@ -1,13 +1,17 @@
 import { VStack, Button, Box, Text } from "@chakra-ui/react";
 import React from "react";
-import "../../css/sidebar.css";
+import "../css/sidebar.css";
 
 import { BiGridAlt, BiUser, BiWrench } from "react-icons/bi";
 import { TbBuildingHospital } from "react-icons/tb";
 
 function SidebarComponent() {
   const list = [
-    { name: "Dashboard", icon: <BiGridAlt />, path: "/dashboard" },
+    {
+      name: "Dashboard",
+      icon: <BiGridAlt />,
+      path: "/dashboard",
+    },
     { name: "Hospitals", icon: <TbBuildingHospital />, path: "/hospitals" },
     { name: "Users", icon: <BiUser />, path: "/users" },
     { name: "Settings", icon: <BiWrench />, path: "/settings" },

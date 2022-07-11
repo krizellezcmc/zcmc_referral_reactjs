@@ -3,3 +3,15 @@
 * {
   font-family: "Poppins";
 }
+
+.bold {
+  font-weight: 600 !important;
+}
+
+.textColor {
+  color: "#058e46" !important;
+}
+
+.bgGreen {
+  background: "#058e46" !important;
+}
